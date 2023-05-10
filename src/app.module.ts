@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { ProductsModule } from './products/products.module';
+import { ProductsModule } from './modules/products/products.module';
 import { ConfigModule } from '@nestjs/config';
-import { Product } from './products/products.model';
-import { UsersModule } from './users/users.module';
-import { User } from './users/users.model';
-import { AuthModule } from './auth/auth.module';
-import { FilesModule } from './files/files.module';
+import { Product } from './modules/products/products.model';
+import { UsersModule } from './modules/users/users.module';
+import { User } from './modules/users/users.model';
+import { AuthModule } from './modules/auth/auth.module';
+import { FilesModule } from './modules/files/files.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 

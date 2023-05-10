@@ -1,10 +1,12 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
+import { DataTypes } from 'sequelize';
 
 interface ProductCreationAttr {
   name: string;
   description: string;
   price: number;
+  images: string[];
 }
 
 @Table({ tableName: 'products' })
@@ -45,4 +47,14 @@ export class Product extends Model<Product, ProductCreationAttr> {
     allowNull: false,
   })
   price: number;
+
+  @ApiProperty({
+    example: '["test.png", "test2.png"]',
+    description: 'images',
+  })
+  @Column({
+    type: DataTypes.ARRAY(DataType.STRING),
+    allowNull: false,
+  })
+  images: string[];
 }

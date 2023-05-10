@@ -6,6 +6,9 @@ import { Product } from './products/products.model';
 import { UsersModule } from './users/users.module';
 import { User } from './users/users.model';
 import { AuthModule } from './auth/auth.module';
+import { FilesModule } from './files/files.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   controllers: [],
@@ -13,6 +16,10 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     ConfigModule.forRoot({
       envFilePath: `.env.${process.env.NODE_ENV}`,
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, 'static'),
+      serveRoot: '/static',
     }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
@@ -27,6 +34,7 @@ import { AuthModule } from './auth/auth.module';
     ProductsModule,
     UsersModule,
     AuthModule,
+    FilesModule,
   ],
 })
 export class AppModule {}

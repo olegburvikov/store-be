@@ -12,4 +12,7 @@ export class CreateProductDto {
 
   @ApiProperty({ example: '100', description: 'Product price' })
   readonly price: number;
+
+  @ApiProperty({ example: '["img-url.png"]', description: 'images' })
+  readonly images: string[];
 }

@@ -18,7 +18,7 @@ import { join } from 'path';
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, 'static'),
+      rootPath: join(__dirname, 'modules', 'static'),
       serveRoot: '/static',
     }),
     SequelizeModule.forRoot({
